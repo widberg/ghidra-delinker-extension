@@ -302,6 +302,11 @@ public class OmfRelocatableObjectExporter extends Exporter {
 	}
 
 	@Override
+	public boolean canExportDomainObject(Class<? extends DomainObject> domainObjectClass) {
+		return Program.class.isAssignableFrom(domainObjectClass);
+	}
+
+	@Override
 	public List<Option> getOptions(DomainObjectService domainObjectService) {
 		Program program = getProgram(domainObjectService.getDomainObject());
 		if (program == null) {
